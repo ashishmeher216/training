@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+    }
+
+    #background-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+     .carousel {
+     	width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        position: relative;
+        text-align: center;
+        
+      }
+      .centered {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+      }
+
+    header.HandyKrafts {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: ff6a95;
+    }
+
+    form {
+        background-color: #fff;
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 30px 20px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #1A73E8;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .topnav {
+    	display:flex;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .topnav a.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        text-align: center;
+    }
+    .row {
+    	display:flex; 
+    	justify-content:space-between;
+    }
+    .column {
+    	width:45%;
+    	display:flex; 
+    	flex-direction:column;
+    	align-items:flex-start;
+    }
+</style>
+
+<body>
+    <div class="topnav">
+    	<div style="background-color:#ddd;">
+        	<img src="images/logo1.png" alt="logo" width="50" height="50"  />
+		</div>
+		<a href="#home" class="active">HandyKrafts</a>
+        <a href="#news">Categories</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#about">About Us</a>
+    </div>
+
+    <div class="carousel">
+      <div>
+        <img src="images/login.jpg" alt="registration" style="width: 100vw;height:100vh" />
+      </div>
+      <div class="centered">
+        <form name="registrationForm" action="registration" onsubmit="return validateForm()">
+        <h3>Registration</h3>
+        <div class="row">
+	        <div class="column">
+	        	<label for="fname"> First Name</label>
+	        	<input required type="text" id="fname" name="fname" value="">
+	        	<span id="fnameError" style="color:red; font-size:12px"></span>
+	        </div>
+	        <div class="column">
+	        	<label for="lname">Last Name</label>
+	        	<input required type="text" id="lname" name="lname" value="">
+        		<span id="lnameError" style="color:red; font-size:12px"></span>
+	        </div>
+        </div>
+        <div class="row">
+	        <div class="column">
+	        	<label for="lname">Mobile Number</label>
+		        <input required type="text" id="mobile" name="mobile" value="">
+		        <span id="mobileNoError" style="color:red; font-size:12px"></span>
+	        </div>
+	        <div class="column">
+	        	<label for="lname">Aadhar Number</label>
+		        <input required type="text" id="idproof" name="idproof" value="">
+		        <span id="aadharNoError" style="color:red; font-size:12px"></span>
+	        </div>
+        </div>
+        <div class="row">
+	        <div class="column">
+	        	<label for="email">Email</label>
+		        <input required type="email" id="email" name="email" value="">
+		        <span id="emailError" style="color:red; font-size:12px"></span>
+	        </div>
+	        <div class="column">
+	        	<label for="lname">Date of Birth</label>
+		        <input required type="date" id="dateOfBirth" name="dob">
+		        <span id="dateOfBirthError" style="color:red; font-size:12px"></span>
+	        </div>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+      </div>
+    </div>
+    
+    
+    <div class="footer">
+        <p>©2022 HandyKrafts.com All Rights Reserved</p>
+    </div>
+    
+    <script>
+        function validateForm() {
+            let fname = document.forms["registrationForm"]["fname"].value;
+            let lname = document.forms["registrationForm"]["lname"].value;
+            let mobile = document.forms["registrationForm"]["mobile"].value;
+            let idproof = document.forms["registrationForm"]["idproof"].value;
+            let dob = document.forms["registrationForm"]["dob"].value;
+            if (fname == "" ) {
+                document.getElementById("fnameError").innerHTML = "First Name is required and must be alphabetical.";
+                return false;
+            }
+            else if (lname == "") {
+                document.getElementById("lnameError").innerHTML = "Last Name is required and must be alphabetical.";
+                return false;
+            }
+            else if (isNaN(mobile) || mobile == "" || mobile.length!=10) {
+                document.getElementById("mobileNoError").innerHTML = "Mobile Number must be number and length must be size 10.";
+                return false;
+            }
+            else if (idproof == "" || idproof.length!=12) {
+                document.getElementById("aadharNoError").innerHTML = "Aadhar Number length must be 12";
+                return false;
+            }
+            else if (dob == "") {
+                document.getElementById("dateOfBirthError").innerHTML = "Date Of Birth is required";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
