@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: Ashish.Meher1
+Build-Jdk: 16.0.2
+Implementation-Title: springbootpractice
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.ashish
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/springbootpractice
+Created-By: Maven Integration for Eclipse
+
